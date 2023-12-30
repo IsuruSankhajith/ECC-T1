@@ -1,0 +1,41 @@
+import random
+
+def roll_dice():
+    """Simulate rolling a six-sided die."""
+    return random.randint(1, 6)
+
+def play_dice_game():
+    """Play a simple dice game."""
+    print("Welcome to the Simple Dice Game!")
+    player_score = 0
+    computer_score = 0
+
+    while True:
+        input("Press Enter to roll the dice...")
+        
+        # Roll the dice for the player and computer
+        player_roll = roll_dice()
+        computer_roll = roll_dice()
+
+        print(f"You rolled a {player_roll}.")
+        print(f"The computer rolled a {computer_roll}.")
+
+        # Determine the winner of the round
+        if player_roll > computer_roll:
+            print("You win this round!")
+            player_score += 1
+        elif player_roll < computer_roll:
+            print("Computer wins this round!")
+            computer_score += 1
+        else:
+            print("It's a tie!")
+
+        print(f"Your Score: {player_score} | Computer Score: {computer_score}")
+
+        play_again = input("Do you want to play again? (yes/no): ").lower()
+        if play_again != 'yes':
+            print("Thanks for playing. Game Over!")
+            break
+
+if __name__ == "__main__":
+    play_dice_game()
